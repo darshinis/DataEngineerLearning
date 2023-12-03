@@ -19,4 +19,20 @@ df = spark.read.format("csv")\ # type of file
                 .option("mode"="PERMISSIVE")\ # (mode : PERMISSIVE,DROPMALFORMED,FAILFAST)
                 .load("cars.csv")
 ##############################################################################################
+#                                different actions on Data Frame                             #
+##############################################################################################
+"""
+1. count
+2. reduce
+3. reduceByKey
+4. take
+5. first
+6. SaveTextFile : save the RDD file has partitions
+7. reduceByKey
+"""
+#############################################################################################
+#                                      Transformation                                       #
+#############################################################################################
+
+
 
