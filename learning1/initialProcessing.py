@@ -14,7 +14,7 @@ sc = spark.sparkContext
 ##############################################################################################
 df = spark.read.csv("cars.csv",header = True,sep=";")
 df = spark.read.format("csv")\ # type of file
-                .option("header"=True)\
+                .option("header"=True)\ # ("inferschema" : True), .schema("schema string")
                 .option("delimiter"=";)\
                 .option("mode"="PERMISSIVE")\ # (mode : PERMISSIVE,DROPMALFORMED,FAILFAST)
                 .load("cars.csv")
