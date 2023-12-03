@@ -30,15 +30,25 @@ df = spark.read.format("csv")\ # type of file
 5. first
 6. SaveTextFile : save the RDD file has partitions
 7. reduceByKey
+8. saveAsTextFile : it will save the RDD to the place into partitions
 """
+
+
+
+
 #############################################################################################
 #                                      Transformation                                       #
 #############################################################################################
+# map()
+df.map(lambda x : (x,1))
 
-
-
+# reduceByKey(), countByKey()
+df.reduceByKey(x,y:x+y)
+df.countByKey(x,y:x+y)
 
 #############################################################################################
-#                                     
+#                                                   
 #############################################################################################
+
+
 
