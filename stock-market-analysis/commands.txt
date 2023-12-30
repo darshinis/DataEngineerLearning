@@ -1,0 +1,43 @@
+1. install java befor running Kafka, has kafka runs on java JDK.
+
+2. create a ec2 instance/ start the existing ec2 instance under username : ec2-user or any, other than root
+3. download latest Kafka .tar file using wget https://.....
+ wget https://downloads.apache.org/kafka/3.3.1/kafka_2.12-3.3.1.tgz
+4. unzip  the .tar file
+tar -xvf kafka_2.12-3.3.1.tgz
+5. need to run Server.properties file and zookeeper.properties
+Start Zoo-keeper:
+-------------------------------------------------------------------
+try to give full path of bin and config, if any error occurs 
+bin/zookeeper-server-start.sh config/zookeeper.properties
+/home/ec2-user/kafka_2.13-3.6.1/bin/zookeeper-server-start.sh /home/ec2-user/kafka_2.13-3.6.1/config/zookeeper.properties
+
+windows :
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+6. Start Kafka-server:
+------------------------------------------------------------------
+Duplicate the session & enter in a new console --
+export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+cd kafka_2.12-3.3.1
+---------------------------------------------------------------------
+try to give full path of bin and config, if any error occurs 
+bin/kafka-server-start.sh config/server.properties
+/home/ec2-user/kafka_2.13-3.6.1/bin/kafka-server-start.sh /home/ec2-user/kafka_2.13-3.6.1/config/server.properties
+
+windows:
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+Create the topic:
+-----------------------------------------------------------------
+Duplicate the session & enter in a new console --
+cd kafka_2.12-3.3.1
+/home/ec2-user/kafka_2.13-3.6.1/bin/kafka-topics.sh --topic TestLaxmi --create --bootstrap-server 51.20.108.40:9092 --replication-factor 1 --partitions 1
+
+windows:
+.\bin\windows\kafka-topics.bat --topic TestLaxmi --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
+-------------------------------------------------------------
+
+
+
